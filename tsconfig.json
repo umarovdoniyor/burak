@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    /* === Core settings === */
+    "target": "ES2020", // Output modern JS (good balance of features + compatibility)
+    "module": "CommonJS", // Matches Node.js default (and fixes your issue!)
+    "rootDir": "src", // Where your TS source files live
+    "outDir": "dist", // Where compiled JS will go after tsc
+    "esModuleInterop": true, // Makes import/export easier for CommonJS libs (like express, moment)
+    "resolveJsonModule": true, // Allows importing .json files directly if needed
+
+    /* === Type checking === */
+    "strict": true, // Enables all strict type checks (recommended)
+    "skipLibCheck": true, // Skips type-checking node_modules for speed
+
+    /* === Source maps (optional) === */
+    "sourceMap": true, // Enables .map files for debugging (optional but nice)
+
+    /* === Module resolution === */
+    "moduleResolution": "node", // Makes TypeScript behave like Node when resolving imports
+
+    /* === Clean output === */
+    "noEmitOnError": true, // Don't emit JS if there are TS errors
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./",
+    "paths": {
+      "*": ["node_modules/*"]
+    }
+  },
+  "include": ["src"], // Only compile code inside src/
+  "exclude": ["node_modules"] // Don’t compile dependencies
+}
