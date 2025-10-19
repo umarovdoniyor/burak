@@ -1,5 +1,46 @@
 console.log('======>TRAIN MODE<======');
+// =========================================================================
+/**
+ * TASK-I:
 
+Shunday function tuzing, u parametrdagi array ichida eng ko'p
+takrorlangan raqamni topib qaytarsin.
+
+MASALAN: majorityElement([1, 2, 3, 4, 5, 4, 3, 4]); return 4
+
+Yuqoridag misolda argument sifatida kiritilayotgan array tarkibida 4 soni ko'p takrorlanganligi uchun 4'ni return qilmoqda.
+ */
+
+// masalani yechimi ⬇️
+
+function majorityElement(arr: number[]): number | null {
+  if (arr.length === 0) return null;
+
+  const counts: { [key: number]: number } = {};
+
+  for (const num of arr) {
+    counts[num] = (counts[num] || 0) + 1;
+  }
+
+  let majority_el = arr[0];
+  let maxCount = 0;
+
+  for (const num in counts) {
+    if (counts[num] > maxCount) {
+      maxCount = counts[num];
+      majority_el = Number(num);
+    }
+  }
+
+  return majority_el;
+}
+
+// Example
+const example_input = [1, 2, 3, 4, 5, 4, 3, 4];
+const result = majorityElement(example_input);
+console.log('result: ', result);
+
+// =========================================================================
 /**
  * TASK H2: 
 
@@ -9,7 +50,7 @@ MASALAN: getDigits("m14i1t") return qiladi "141"
  */
 
 // masalani yechimi
-
+/*
 function getDigits(str: string): string {
   let result = '';
   for (let char of str) {
@@ -24,7 +65,7 @@ function getDigits(str: string): string {
 const example_data = 'm14i1t';
 const result = getDigits(example_data);
 console.log('result: ', result);
-
+*/
 // =========================================================================
 /**
  TASK H: 
