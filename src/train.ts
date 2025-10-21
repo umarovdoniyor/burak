@@ -1,6 +1,38 @@
 console.log('======>TRAIN MODE<======');
 // =========================================================================
 /**
+ * TASK J:
+
+Shunday function tuzing, u string qabul qilsin.
+Va string ichidagi eng uzun so'zni qaytarsin.
+
+MASALAN: findLongestWord("I came from Uzbekistan!"); return "Uzbekistan!"
+
+Yuqoridagi text tarkibida 'Uzbekistan'
+eng uzun so'z bo'lganligi uchun 'Uzbekistan'ni qaytarmoqda
+ */
+
+// masalani yechimi
+
+function findLongestWord(sentence: string): string {
+  const words_arr = sentence.split(' ');
+  let longest = '';
+
+  for (const curr of words_arr) {
+    if (curr.length > longest.length) {
+      longest = curr;
+    }
+  }
+
+  return longest;
+}
+
+// Example
+const example_input = 'I came from Uzbekistan!';
+const result = findLongestWord(example_input);
+console.log('result: 👉 ', result);
+// =========================================================================
+/**
  * TASK-I:
 
 Shunday function tuzing, u parametrdagi array ichida eng ko'p
@@ -12,7 +44,7 @@ Yuqoridag misolda argument sifatida kiritilayotgan array tarkibida 4 soni ko'p t
  */
 
 // masalani yechimi ⬇️
-
+/*
 function majorityElement(arr: number[]): number | null {
   if (arr.length === 0) return null;
 
@@ -39,7 +71,7 @@ function majorityElement(arr: number[]): number | null {
 const example_input = [1, 2, 3, 4, 5, 4, 3, 4];
 const result = majorityElement(example_input);
 console.log('result: ', result);
-
+*/
 // =========================================================================
 /**
  * TASK H2: 
