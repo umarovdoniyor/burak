@@ -2,13 +2,21 @@ console.log('======>TRAIN MODE<======');
 // =========================================================================
 
 /**
+ *TASK L: 
+
+Shunday function yozing, u string qabul qilsin va string ichidagi hamma sozlarni chappasiga yozib va sozlar ketma-ketligini buzmasdan stringni qaytarsin.
+MASALAN: reverseSentence("we like coding!") return "ew ekil gnidoc";
+ */
+// =========================================================================
+
+/**
  * TASK K: 
 Shunday function yozing, u string qabul qilsin va string ichidagi unli harflar sonini qaytarsin.
 MASALAN: countVowels("string") return 1;
  */
 
 // masalani yechimi
-
+/*
 function countVowels(str: string): number {
   const vowels = 'aeiouAEIOU';
   let count = 0;
@@ -26,7 +34,7 @@ function countVowels(str: string): number {
 const example_input = 'string';
 const result = countVowels(example_input);
 console.log('result: 👉 ', result);
-
+*/
 // =========================================================================
 /**
  * TASK J:
