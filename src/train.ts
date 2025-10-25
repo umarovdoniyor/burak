@@ -7,6 +7,21 @@ console.log('======>TRAIN MODE<======');
 Shunday function yozing, u string qabul qilsin va string ichidagi hamma sozlarni chappasiga yozib va sozlar ketma-ketligini buzmasdan stringni qaytarsin.
 MASALAN: reverseSentence("we like coding!") return "ew ekil gnidoc";
  */
+
+// masalani yechimi
+
+function reverseSentence(sentence: string): string {
+  const words = sentence.split(' ');
+  const reversedWords = words.map((word) => word.split('').reverse().join(''));
+  const result = reversedWords.join(' ');
+  return result;
+}
+
+// Example
+const example_input = 'we like coding';
+const result = reverseSentence(example_input);
+console.log('result: 👉 ', result);
+
 // =========================================================================
 
 /**
