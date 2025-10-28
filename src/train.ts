@@ -1,5 +1,28 @@
 console.log('======>TRAIN MODE<======');
 // =========================================================================
+/**
+ * TASK M: 
+
+Shunday function yozing, u raqamlardan tashkil topgan array qabul qilsin va array ichidagi har bir raqam uchun raqamni ozi va hamda osha raqamni kvadratidan tashkil topgan object hosil qilib, hosil bolgan objectlarni array ichida qaytarsin.
+MASALAN: getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1}, {number: 2, square: 4}, {number: 3, square: 9}];
+ */
+
+// masalani yechimi
+
+function getSquareNumbers(arr: number[]): { number: number; square: number }[] {
+  return arr.map((num) => ({
+    number: num,
+    square: num * num,
+  }));
+}
+
+// Example
+
+const example_input = [1, 2, 3];
+const result = getSquareNumbers(example_input);
+console.log('result: 👉 ', result);
+
+// =========================================================================
 
 /**
  *TASK L: 
@@ -9,7 +32,7 @@ MASALAN: reverseSentence("we like coding!") return "ew ekil gnidoc";
  */
 
 // masalani yechimi
-
+/*
 function reverseSentence(sentence: string): string {
   const words = sentence.split(' ');
   const reversedWords = words.map((word) => word.split('').reverse().join(''));
@@ -21,7 +44,7 @@ function reverseSentence(sentence: string): string {
 const example_input = 'we like coding';
 const result = reverseSentence(example_input);
 console.log('result: 👉 ', result);
-
+*/
 // =========================================================================
 
 /**
