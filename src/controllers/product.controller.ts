@@ -37,6 +37,7 @@ productController.createNewProduct = async (
       throw new Errors(HttpCode.INTERNAL_SERVER_ERROR, Message.CREATE_FAILED);
 
     const data: ProductInput = req.body;
+    console.log('product.controller->data: ', data);
     data.productImages = req.files?.map((ele) => {
       return ele.path.replace(/\\/g, '/');
     });
