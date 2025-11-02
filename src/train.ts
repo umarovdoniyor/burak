@@ -1,6 +1,38 @@
 console.log('======>TRAIN MODE<======');
 // =========================================================================
 /**
+ * TASK O:
+
+Shunday function yozing va u har xil qiymatlardan iborat array qabul qilsin.
+Va array ichidagi sonlar yig'indisini hisoblab chiqgan javobni qaytarsin
+
+MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]); return 45
+
+Yuqoridagi misolda array tarkibida faqatgina ikkita yagona son mavjud bular 10 hamda 35
+Qolganlari nested bo'lib yoki type'lari number emas.
+ */
+
+// masalani yechimi
+
+function calculateSumOfNumbers(arr: any[]): number {
+  let sum = 0;
+
+  for (const i of arr) {
+    if (typeof i === 'number') {
+      sum += i;
+    }
+  }
+
+  return sum;
+}
+
+// Example
+const example_input = [10, '10', { son: 10 }, true, 35];
+const result = calculateSumOfNumbers(example_input);
+console.log('result: 👉 ', result);
+
+// =========================================================================
+/**
  * TASK N:
 
 Shunday function yozing, u string qabul qilsin va string palindrom yani togri oqilganda ham, orqasidan oqilganda ham bir hil oqiladigan soz ekanligini aniqlab boolean qiymat qaytarsin.
@@ -9,7 +41,7 @@ MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false;
  */
 
 // masalani yechimi
-
+/*
 function palindromeCheck(str: string): boolean {
   const reversed = str.split('').reverse().join('');
   return str === reversed;
@@ -19,7 +51,7 @@ function palindromeCheck(str: string): boolean {
 const example_input = 'dad'; // son
 const result = palindromeCheck(example_input);
 console.log('result: 👉 ', result);
-
+*/
 // =========================================================================
 /**
  * TASK M: 
