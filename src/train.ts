@@ -1,6 +1,26 @@
 console.log('======>TRAIN MODE<======');
 // =========================================================================
 /**
+ * TASK P:
+
+Parametr sifatida yagona object qabul qiladigan function yozing.
+Qabul qilingan objectni nested array sifatida convert qilib qaytarsin
+
+MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
+ */
+// masalani yechimi
+
+function objectToArray(obj: Record<string, any>): [string, any][] {
+  return Object.entries(obj);
+}
+
+// Example
+const example_input = { a: 10, b: 20 };
+const result = objectToArray(example_input);
+console.log('result: 👉 ', result);
+
+// =========================================================================
+/**
  * TASK O:
 
 Shunday function yozing va u har xil qiymatlardan iborat array qabul qilsin.
@@ -13,7 +33,7 @@ Qolganlari nested bo'lib yoki type'lari number emas.
  */
 
 // masalani yechimi
-
+/*
 function calculateSumOfNumbers(arr: any[]): number {
   let sum = 0;
 
@@ -30,7 +50,7 @@ function calculateSumOfNumbers(arr: any[]): number {
 const example_input = [10, '10', { son: 10 }, true, 35];
 const result = calculateSumOfNumbers(example_input);
 console.log('result: 👉 ', result);
-
+*/
 // =========================================================================
 /**
  * TASK N:
