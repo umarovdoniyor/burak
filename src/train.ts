@@ -1,6 +1,37 @@
 console.log('======>TRAIN MODE<======');
 // =========================================================================
 /**
+ *TASK Q:
+
+Shunday function yozing, u 2 ta parametrga ega bo'lib
+birinchisi object, ikkinchisi string bo'lsin.
+Agar qabul qilinayotgan ikkinchi string, objectning
+biror bir propertysiga mos kelsa, 'true', aks holda mos kelmasa 'false' qaytarsin.
+
+MASALAN: hasProperty({ name: "BMW", model: "M3" }, "model"); return true;
+Ushbu misolda, 'model' string, objectning propertysiga mos kelganligi uchun 'true' natijani qaytarmoqda
+
+MASALAN: hasProperty({ name: "BMW", model: "M3" }, "year"); return false;
+Ushbu misolda, ikkinchi argument sifatida berilayotgan 'year' objectning
+propertysida mavjud bo'lmaganligi uchun 'false' natijani qaytarmoqda.
+ */
+// masalani yechimi
+
+function hasProperty(obj: Record<string, any>, key: string): boolean {
+  for (const prop in obj) {
+    if (prop === key) {
+      return true;
+    }
+  }
+  return false;
+}
+
+// Examples
+console.log(hasProperty({ name: 'BMW', model: 'M3' }, 'model')); // ➜ true
+console.log(hasProperty({ name: 'BMW', model: 'M3' }, 'year')); // ➜ false
+
+// =========================================================================
+/**
  * TASK P:
 
 Parametr sifatida yagona object qabul qiladigan function yozing.
@@ -9,7 +40,7 @@ Qabul qilingan objectni nested array sifatida convert qilib qaytarsin
 MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
  */
 // masalani yechimi
-
+/*
 function objectToArray(obj: Record<string, any>): [string, any][] {
   return Object.entries(obj);
 }
@@ -18,7 +49,7 @@ function objectToArray(obj: Record<string, any>): [string, any][] {
 const example_input = { a: 10, b: 20 };
 const result = objectToArray(example_input);
 console.log('result: 👉 ', result);
-
+*/
 // =========================================================================
 /**
  * TASK O:
