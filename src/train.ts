@@ -1,6 +1,50 @@
 console.log('======>TRAIN MODE<======');
 // =========================================================================
 /**
+ *TASK R
+
+Shunday function yozing, u string parametrga ega bo'lsin.
+Agar argument sifatida berilayotgan string, "1 + 2" bo'lsa,
+string ichidagi sonlarin yig'indisni hisoblab, number holatida qaytarsin
+
+MASALAN: calculate("1 + 3"); return 4;
+1 + 3 = 4, shu sababli 4 natijani qaytarmoqda.
+ */
+
+// masalani yechimi
+
+function calculate(expression: string): number | null {
+  const parts = expression.split(' ').filter(Boolean);
+  if (parts.length !== 3) return null;
+
+  const [aStr, operator, bStr] = parts;
+  const a = Number(aStr);
+  const b = Number(bStr);
+
+  if (isNaN(a) || isNaN(b)) return null;
+
+  switch (operator) {
+    case '+':
+      return a + b;
+    case '-':
+      return a - b;
+    case '*':
+      return a * b;
+    case '/':
+      return b !== 0 ? a / b : null;
+    default:
+      return null;
+  }
+}
+
+// Examples
+console.log(calculate('1 + 3'));
+console.log(calculate('10 - 2'));
+console.log(calculate('5 * 6'));
+console.log(calculate('8 / 2'));
+
+// =========================================================================
+/**
  *TASK Q:
 
 Shunday function yozing, u 2 ta parametrga ega bo'lib
@@ -17,6 +61,7 @@ propertysida mavjud bo'lmaganligi uchun 'false' natijani qaytarmoqda.
  */
 // masalani yechimi
 
+/*
 function hasProperty(obj: Record<string, any>, key: string): boolean {
   for (const prop in obj) {
     if (prop === key) {
@@ -25,10 +70,10 @@ function hasProperty(obj: Record<string, any>, key: string): boolean {
   }
   return false;
 }
-
+*/
 // Examples
-console.log(hasProperty({ name: 'BMW', model: 'M3' }, 'model')); // ➜ true
-console.log(hasProperty({ name: 'BMW', model: 'M3' }, 'year')); // ➜ false
+//console.log(hasProperty({ name: 'BMW', model: 'M3' }, 'model')); // ➜ true
+//console.log(hasProperty({ name: 'BMW', model: 'M3' }, 'year')); // ➜ false
 
 // =========================================================================
 /**
