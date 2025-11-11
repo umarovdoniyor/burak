@@ -1,6 +1,31 @@
 console.log('======>TRAIN MODE<======');
 // =========================================================================
 /**
+ *TASK-S:
+
+Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
+MASALAN: missingNumber([3, 0, 1]) return 2
+ */
+
+// masalani yechimi
+
+function missingNumber(num_arr: number[]): number | null {
+  if (num_arr.length === 0) return null;
+
+  const min = Math.min(...num_arr);
+  const max = Math.max(...num_arr);
+  const expectedSum = ((max - min + 1) * (min + max)) / 2;
+  const actualSum = num_arr.reduce((acc, num) => acc + num, 0);
+  const missing = expectedSum - actualSum;
+
+  return missing === 0 ? null : missing;
+}
+
+// Examples
+console.log(missingNumber([3, 0, 1]));
+
+// =========================================================================
+/**
  *TASK R
 
 Shunday function yozing, u string parametrga ega bo'lsin.
@@ -12,7 +37,7 @@ MASALAN: calculate("1 + 3"); return 4;
  */
 
 // masalani yechimi
-
+/*
 function calculate(expression: string): number | null {
   const parts = expression.split(' ').filter(Boolean);
   if (parts.length !== 3) return null;
@@ -42,7 +67,7 @@ console.log(calculate('1 + 3'));
 console.log(calculate('10 - 2'));
 console.log(calculate('5 * 6'));
 console.log(calculate('8 / 2'));
-
+*/
 // =========================================================================
 /**
  *TASK Q:
