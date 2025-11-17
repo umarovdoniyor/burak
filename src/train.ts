@@ -1,4 +1,32 @@
-console.log('======>TRAIN MODE<======');
+console.log("======>TRAIN MODE<======");
+// =========================================================================
+// =========================================================================
+// =========================================================================
+// =========================================================================
+
+/**
+ * TASK T
+
+Shunday function tuzing, u sonlardan tashkil topgan 2'ta array qabul qilsin.
+Va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin.
+
+MASALAN: mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]); return [0, 3, 4, 4, 6, 30, 31];
+
+Yuqoridagi misolda, ikkala arrayni birlashtirib, tartib raqam bo'yicha tartiblab qaytarmoqda.
+ */
+
+// solution
+
+function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+  return [...arr1, ...arr2].sort((a, b) => a - b);
+}
+
+const arr1 = [0, 3, 4, 31],
+  arr2 = [4, 6, 30];
+
+const result = mergeSortedArrays(arr1, arr2);
+console.log("result: 👉 ", result);
+
 // =========================================================================
 /**
  *TASK-S:
@@ -8,7 +36,7 @@ MASALAN: missingNumber([3, 0, 1]) return 2
  */
 
 // masalani yechimi
-
+/*
 function missingNumber(num_arr: number[]): number | null {
   if (num_arr.length === 0) return null;
 
@@ -23,7 +51,7 @@ function missingNumber(num_arr: number[]): number | null {
 
 // Examples
 console.log(missingNumber([3, 0, 1]));
-
+*/
 // =========================================================================
 /**
  *TASK R
