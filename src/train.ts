@@ -2,6 +2,29 @@ console.log("======>TRAIN MODE<======");
 // =========================================================================
 // =========================================================================
 // =========================================================================
+
+/**
+ * TASK U
+
+Shunday function tuzing, uni number parametri bo'lsin.
+Va bu function berilgan parametrgacha, 0'dan boshlab
+oraliqda nechta toq sonlar borligini aniqlab return qilsi.
+
+MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
+
+Yuqoridagi birinchi misolda, argument sifatida, 9 berilmoqda.
+Va 0'dan boshlab sanaganda 9'gacha 4'ta toq son mavjud. 
+Keyingi namunada ham xuddi shunday xolat takrorlanmoqda.
+ */
+
+// solution
+
+function sumOdds(n: number): number {
+  return Math.floor(n / 2);
+}
+
+const result = sumOdds(11);
+console.log("result: 👉 ", result);
 // =========================================================================
 
 /**
@@ -16,7 +39,7 @@ Yuqoridagi misolda, ikkala arrayni birlashtirib, tartib raqam bo'yicha tartiblab
  */
 
 // solution
-
+/*
 function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
   return [...arr1, ...arr2].sort((a, b) => a - b);
 }
@@ -26,7 +49,7 @@ const arr1 = [0, 3, 4, 31],
 
 const result = mergeSortedArrays(arr1, arr2);
 console.log("result: 👉 ", result);
-
+*/
 // =========================================================================
 /**
  *TASK-S:
