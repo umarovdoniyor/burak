@@ -1,6 +1,36 @@
 console.log("======>TRAIN MODE<======");
 // =========================================================================
 // =========================================================================
+/**
+ * TASK V
+
+Shunday function yozing, uni string parametri bo'lsin.
+Va bu function stringdagi har bir harfni o'zi bilan
+necha marotaba taktorlanganligini ko'rsatuvchi object qaytarsin.
+  
+MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
+
+Yuqoridagi misolda, 'hello' so'zi tarkibida
+qatnashgan harflar necha marotaba takrorlangini bilan
+object sifatida qaytarilmoqda.
+ */
+// solution
+
+function countChars(str: string): Record<string, number> {
+  const result: Record<string, number> = {};
+
+  for (const char of str) {
+    result[char] = (result[char] || 0) + 1;
+  }
+
+  return result;
+}
+
+// Example
+const example_input = "hello";
+const result = countChars(example_input);
+console.log("result: 👉 ", result);
+
 // =========================================================================
 
 /**
@@ -18,13 +48,14 @@ Keyingi namunada ham xuddi shunday xolat takrorlanmoqda.
  */
 
 // solution
-
+/*
 function sumOdds(n: number): number {
   return Math.floor(n / 2);
 }
 
 const result = sumOdds(11);
 console.log("result: 👉 ", result);
+*/
 // =========================================================================
 
 /**
