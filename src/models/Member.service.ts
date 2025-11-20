@@ -1,14 +1,14 @@
-import MemberModel from '../schema/Member.model';
+import MemberModel from "../schema/Member.model";
 import {
   LoginInput,
   Member,
   MemberInput,
   MemberUpdateInput,
-} from '../libs/types/member';
-import Errors, { HttpCode, Message } from '../libs/Errors';
-import { MemberStatus, MemberType } from '../libs/enums/member.enum';
-import * as bcrypt from 'bcryptjs';
-import { shapeIntoMongooseObjectId } from '../libs/config';
+} from "../libs/types/member";
+import Errors, { HttpCode, Message } from "../libs/Errors";
+import { MemberStatus, MemberType } from "../libs/enums/member.enum";
+import * as bcrypt from "bcryptjs";
+import { shapeIntoMongooseObjectId } from "../libs/config";
 
 class MemberService {
   private readonly memberModel;
@@ -23,10 +23,10 @@ class MemberService {
 
     try {
       const result = await this.memberModel.create(input);
-      result.memberPassword = '';
+      result.memberPassword = "";
       return result.toJSON();
     } catch (err) {
-      console.error('Error, model:signup', err);
+      console.error("Error, model:signup", err);
       throw new Errors(HttpCode.BAD_REQUEST, Message.USED_NICK_PHONE);
     }
   }
@@ -57,6 +57,17 @@ class MemberService {
     return await this.memberModel.findById(member._id).lean().exec();
   }
 
+  public getMemberDetail(member: Member): Promise<Member> {
+    const memberId = shapeIntoMongooseObjectId(member._id);
+    const result = this.memberModel
+      .findOne({ _id: memberId, memberStatus: MemberStatus.ACTIVE })
+      .lean()
+      .exec();
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
+    return result;
+  }
+
   /** SSR */
   public async processSignup(input: MemberInput): Promise<Member> {
     const exist = await this.memberModel
@@ -70,7 +81,7 @@ class MemberService {
 
     try {
       const result = await this.memberModel.create(input);
-      result.memberPassword = '';
+      result.memberPassword = "";
       return result;
     } catch (err) {
       throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
