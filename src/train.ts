@@ -15,7 +15,7 @@ qatnashgan harflar necha marotaba takrorlangini bilan
 object sifatida qaytarilmoqda.
  */
 // solution
-
+/*
 function countChars(str: string): Record<string, number> {
   const result: Record<string, number> = {};
 
@@ -30,7 +30,7 @@ function countChars(str: string): Record<string, number> {
 const example_input = "hello";
 const result = countChars(example_input);
 console.log("result: 👉 ", result);
-
+*/
 // =========================================================================
 
 /**
