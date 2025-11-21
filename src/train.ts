@@ -1,6 +1,37 @@
 console.log("======>TRAIN MODE<======");
 // =========================================================================
 // =========================================================================
+// =========================================================================
+// =========================================================================
+// =========================================================================
+
+/**
+ *TASK W
+
+Shunday function yozing, u o'ziga parametr sifatida
+yagona array va number qabul qilsin. Siz tuzgan function
+arrayni numberda berilgan uzunlikda kesib bo'laklarga
+ajratgan holatida qaytarsin.
+MASALAN: chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3);
+return [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]];
+
+Yuqoridagi namunada berilayotgan array ikkinchi parametr 3'ga
+asoslanib 3 bo'lakga bo'linib qaytmoqda. Qolgani esa o'z holati qolyapti
+ */
+// solution
+function chunkArray(arr: number[], chunkSize: number): number[][] {
+  const result: number[][] = [];
+  for (let i = 0; i < arr.length; i += chunkSize) {
+    result.push(arr.slice(i, i + chunkSize));
+  }
+  return result;
+}
+
+// Example
+const example_input = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const result = chunkArray(example_input, 3);
+console.log("result: 👉 ", result);
+// =========================================================================
 /**
  * TASK V
 
