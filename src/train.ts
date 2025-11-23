@@ -3,6 +3,52 @@ console.log("======>TRAIN MODE<======");
 // =========================================================================
 // =========================================================================
 // =========================================================================
+
+/**
+ * TASK X
+
+Shunday function yozing, uni object va string parametrlari bo'lsin.
+Bu function, birinchi object parametri tarkibida, kalit sifatida ikkinchi string parametri
+necha marotaba takrorlanganlini sanab qaytarsin.
+
+Eslatma => Nested object'lar ham sanalsin
+
+MASALAN: countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model') return 2
+
+Yuqoridagi misolda, birinchi argument object, ikkinchi argument 'model'.
+Funktsiya, shu ikkinchi argument 'model', birinchi argument object
+tarkibida kalit sifatida 2 marotaba takrorlanganligi uchun 2 soni return qilmoqda
+ */
+
+// solution
+
+function countOccurrences(input_obj: any, targetKey: string): number {
+  let count = 0;
+
+  if (input_obj && typeof input_obj === "object") {
+    if (Array.isArray(input_obj)) {
+      for (const el of input_obj) {
+        count += countOccurrences(el, targetKey);
+      }
+    } else {
+      for (const k of Object.keys(input_obj)) {
+        if (k === targetKey) count++;
+        count += countOccurrences(input_obj[k], targetKey);
+      }
+    }
+  }
+
+  return count;
+}
+
+// Example
+
+console.log(
+  countOccurrences(
+    { model: "Bugatti", steer: { model: "HANKOOK", size: 30 } },
+    "model"
+  )
+);
 // =========================================================================
 
 /**
@@ -19,6 +65,8 @@ Yuqoridagi namunada berilayotgan array ikkinchi parametr 3'ga
 asoslanib 3 bo'lakga bo'linib qaytmoqda. Qolgani esa o'z holati qolyapti
  */
 // solution
+
+/*
 function chunkArray(arr: number[], chunkSize: number): number[][] {
   const result: number[][] = [];
   for (let i = 0; i < arr.length; i += chunkSize) {
@@ -31,6 +79,7 @@ function chunkArray(arr: number[], chunkSize: number): number[][] {
 const example_input = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const result = chunkArray(example_input, 3);
 console.log("result: 👉 ", result);
+*/
 // =========================================================================
 /**
  * TASK V
