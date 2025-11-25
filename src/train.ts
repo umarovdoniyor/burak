@@ -2,6 +2,40 @@ console.log("======>TRAIN MODE<======");
 // =========================================================================
 // =========================================================================
 // =========================================================================
+/**
+ * TASK Y
+
+Shunday function yozing, uni 2'ta array parametri bo'lsin.
+Bu function ikkala arrayda ham ishtirok etgan bir xil
+qiymatlarni yagona arrayga joylab qaytarsin.
+
+MASALAN: findIntersection([1,2,3], [3,2,0]) return [2,3]
+
+Yuqoridagi misolda, argument sifatida berilayotgan array'larda
+o'xshash sonlar mavjud. Function'ning vazifasi esa ana shu
+ikkala array'da ishtirok etgan o'xshash sonlarni yagona arrayga
+joylab return qilmoqda.
+ */
+// solution
+
+function findIntersection(arr1: number[], arr2: number[]): number[] {
+  const result: number[] = [];
+
+  for (const num of arr1) {
+    if (arr2.includes(num)) {
+      result.push(num);
+    }
+  }
+
+  return result;
+}
+
+// Example
+const example_input1 = [1, 2, 3],
+  example_input2 = [3, 2, 0],
+  result = findIntersection(example_input1, example_input2);
+console.log("result: 👉 ", result);
+
 // =========================================================================
 
 /**
@@ -21,7 +55,7 @@ tarkibida kalit sifatida 2 marotaba takrorlanganligi uchun 2 soni return qilmoqd
  */
 
 // solution
-
+/*
 function countOccurrences(input_obj: any, targetKey: string): number {
   let count = 0;
 
@@ -49,6 +83,7 @@ console.log(
     "model"
   )
 );
+*/
 // =========================================================================
 
 /**
