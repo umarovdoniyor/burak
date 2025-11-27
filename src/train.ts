@@ -2,6 +2,44 @@ console.log("======>TRAIN MODE<======");
 // =========================================================================
 // =========================================================================
 // =========================================================================
+// =========================================================================
+// =========================================================================
+// =========================================================================
+// =========================================================================
+/**
+ * TASK Z
+
+Shunday function yozing. Bu function sonlardan iborat array
+qabul qilsin. Function'ning vazifasi array tarkibidagi juft
+sonlarni topib ularni yig'disini qaytarsin.
+
+MASALAN:
+sumEvens([1, 2, 3]); return 2;
+sumEvens([1, 2, 3, 2]); return 4;
+
+Yuqoridagi misolda, bizning funktsiya
+berilayotgan array tarkibidagi sonlar ichidan faqatgina juft bo'lgan
+sonlarni topib, ularni hisoblab yig'indisini qaytarmoqda.
+ */
+// solution
+
+function sumEvens(arr: number[]): number {
+  let sum = 0;
+
+  for (const num of arr) {
+    if (num % 2 === 0) {
+      sum += num;
+    }
+  }
+
+  return sum;
+}
+
+// Examples:
+console.log("result: 👉", sumEvens([1, 2, 3]));
+console.log("result: 👉", sumEvens([1, 2, 3, 2]));
+
+// =========================================================================
 /**
  * TASK Y
 
@@ -17,7 +55,7 @@ ikkala array'da ishtirok etgan o'xshash sonlarni yagona arrayga
 joylab return qilmoqda.
  */
 // solution
-
+/*
 function findIntersection(arr1: number[], arr2: number[]): number[] {
   const result: number[] = [];
 
@@ -35,7 +73,7 @@ const example_input1 = [1, 2, 3],
   example_input2 = [3, 2, 0],
   result = findIntersection(example_input1, example_input2);
 console.log("result: 👉 ", result);
-
+*/
 // =========================================================================
 
 /**
