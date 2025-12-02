@@ -35,8 +35,8 @@ memberController.signup = async (req: Request, res: Response) => {
   try {
     console.log("signup 🔥");
     const input: MemberInput = req.body,
-      result: Member = await memberService.signup(input);
-    const token = await authService.createToken(result);
+      result: Member = await memberService.signup(input),
+      token = await authService.createToken(result);
     // console.log("signup token =>", token);
 
     res.cookie("accessToken", token, {
@@ -57,7 +57,7 @@ memberController.login = async (req: Request, res: Response) => {
   try {
     console.log("login 🔥");
     const input: LoginInput = req.body,
-      result = await memberService.login(input),
+      result: Member = await memberService.login(input),
       token = await authService.createToken(result);
     // console.log("login token =>", token);
 
@@ -92,7 +92,8 @@ memberController.getMemberDetail = async (
 ) => {
   try {
     console.log("getMemberDetail 🔥");
-    const result = await memberService.getMemberDetail(req.member);
+
+    const result: Member = await memberService.getMemberDetail(req.member);
     res.status(HttpCode.OK).json(result);
   } catch (err) {
     console.log("Error getMemberDetail:", err);
@@ -105,10 +106,9 @@ memberController.updateMember = async (req: ExtendedRequest, res: Response) => {
   try {
     console.log("updateMember 🔥");
     const input: MemberUpdateInput = req.body;
-    console.log("input: ", input);
+
     if (req.file) input.memberImage = req.file.path.replace(/\\/g, "/");
-    const result = await memberService.updateMember(req.member, input);
-    // console.log("req.member:", req.member);
+    const result: Member = await memberService.updateMember(req.member, input);
 
     res.status(HttpCode.OK).json(result);
   } catch (err) {
@@ -142,7 +142,6 @@ memberController.verifyAuth = async (
     if (!req.member)
       throw new Errors(HttpCode.UNAUTHORIZED, Message.NOT_AUTHENTICATED);
 
-    // console.log("member:", member);
     next();
   } catch (err) {
     console.log("Error verifyAuth:", err);
@@ -160,7 +159,6 @@ memberController.retrieveAuth = async (
     const token = req.cookies["accessToken"];
     if (token) req.member = await authService.checkAuth(token);
 
-    // console.log("member:", member);
     next();
   } catch (err) {
     console.log("Error retrieveAuth:", err);

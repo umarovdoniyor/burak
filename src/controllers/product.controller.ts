@@ -3,7 +3,7 @@ import { T } from "../libs/types/common";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import ProductService from "../models/Product.service";
 import { AdminRequest, ExtendedRequest } from "../libs/types/member";
-import { ProductInput, ProductInquiry } from "../libs/types/product";
+import { Product, ProductInput, ProductInquiry } from "../libs/types/product";
 import { ProductCollection } from "../libs/enums/product.enum";
 
 const productService = new ProductService();
@@ -18,15 +18,17 @@ productController.getProducts = async (req: Request, res: Response) => {
 
     const { page, limit, order, search, productCollection } = req.query;
     const inquiry: ProductInquiry = {
-      order: String(order),
-      page: Number(page),
-      limit: Number(limit),
+      order: String(order), // -> createdAt
+      page: Number(page), // -> 1
+      limit: Number(limit), // -> 3
     };
     if (productCollection)
+      // -> DISH
       inquiry.productCollection = productCollection as ProductCollection;
-    if (search) inquiry.search = String(search);
 
-    const result = await productService.getProducts(inquiry);
+    if (search) inquiry.search = String(search); // -> Steak
+
+    const result: Product[] = await productService.getProducts(inquiry);
 
     res.status(HttpCode.OK).json(result);
   } catch (err) {

@@ -76,7 +76,7 @@ class ProductService {
         viewRefId: productId,
         viewGroup: ViewGroup.PRODUCT,
       };
-
+      // 01084527005
       const existView = await this.viewService.checkViewExistence(input);
 
       console.log("exist:", !!existView);

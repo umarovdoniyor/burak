@@ -29,12 +29,13 @@ orderController.getMyOrders = async (req: ExtendedRequest, res: Response) => {
     const { page, limit, orderStatus } = req.query;
 
     const inquiry: OrderInquiry = {
-      page: Number(page),
-      limit: Number(limit),
-      orderStatus: orderStatus as OrderStatus,
+      page: Number(page), // => 1
+      limit: Number(limit), // => 2
+      orderStatus: orderStatus as OrderStatus, // => PAUSED
     };
 
     const result = await orderService.getMyOrders(req.member, inquiry);
+    console.log("result: ", result);
 
     res.status(HttpCode.CREATED).json(result);
   } catch (err) {

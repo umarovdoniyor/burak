@@ -5,6 +5,24 @@ console.log("======>TRAIN MODE<======");
 // =========================================================================
 // =========================================================================
 // =========================================================================
+/**
+ *TASK-ZB:
+
+Shunday function yozing, uni 2 ta number parametri bolsin va berilgan sonlar orasidan random raqam return qilsin
+
+MASALAN: randomBetween(30, 50) return 45
+ */
+// solution
+function randomBetween(a: number, b: number): number {
+  let min = Math.ceil(Math.min(a, b));
+  let max = Math.floor(Math.max(a, b));
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+const result = randomBetween(30, 50);
+
+// Example
+console.log("result: 👉", result);
 // =========================================================================
 /**
  * TASK Z
@@ -22,7 +40,7 @@ berilayotgan array tarkibidagi sonlar ichidan faqatgina juft bo'lgan
 sonlarni topib, ularni hisoblab yig'indisini qaytarmoqda.
  */
 // solution
-
+/*
 function sumEvens(arr: number[]): number {
   let sum = 0;
 
@@ -38,7 +56,7 @@ function sumEvens(arr: number[]): number {
 // Examples:
 console.log("result: 👉", sumEvens([1, 2, 3]));
 console.log("result: 👉", sumEvens([1, 2, 3, 2]));
-
+*/
 // =========================================================================
 /**
  * TASK Y

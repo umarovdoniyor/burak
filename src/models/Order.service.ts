@@ -44,6 +44,7 @@ class OrderService {
 
       const orderId = newOrder._id;
       console.log("orderId:", orderId);
+      console.log("newOrder: ", newOrder);
 
       await this.recordOrderItem(orderId, input);
 
@@ -62,7 +63,8 @@ class OrderService {
       item.orderId = orderId;
       item.productId = shapeIntoMongooseObjectId(item.productId);
       await this.orderItemModel.create(item);
-      return "INSERTED";
+
+      return item;
     });
 
     const orderItemsState = await Promise.all(promisedList);
