@@ -2,6 +2,30 @@ console.log("======>TRAIN MODE<======");
 // =========================================================================
 // =========================================================================
 // =========================================================================
+
+/**
+ *TASK-ZF:
+
+Shunday function yozing, uni string parametri bolsin. String ichidagi har bir sozni bosh harflarini katta harf qilib qaytarsin lekin 1 yoki 2 harfdan iborat sozlarni esa oz holicha qoldirsin.
+MASALAN: capitalizeWords('name should be a string') return 'Name Should be a String'
+ */
+// solution
+
+function capitalizeWords(str: string): string {
+  return str
+    .split(" ")
+    .map((word) => {
+      if (word.length < 3) {
+        return word.toLowerCase();
+      }
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    })
+    .join(" ");
+}
+
+// Example
+console.log(capitalizeWords("name should be a string"));
+
 // =========================================================================
 
 /**
@@ -20,7 +44,7 @@ Bizning function uchinchi berilgan '2' raqamini shu '3' bilan almashtirib,
 yangilangan arrayni qaytarmoqda.
  */
 // solution
-
+/*
 function changeNumberInArray(
   index: number,
   arr: number[],
@@ -33,7 +57,7 @@ function changeNumberInArray(
 
 // Example
 console.log(changeNumberInArray(1, [1, 3, 7, 2], 2));
-
+*/
 // =========================================================================
 
 /**
