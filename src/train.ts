@@ -1,6 +1,21 @@
 console.log("======>TRAIN MODE<======");
 // =========================================================================
 // =========================================================================
+/**
+ * TASK-ZG:
+
+Shunday function yozing, u berilgan string parametrni snake casega otkazib qaytarsin. 
+MASALAN: capitalizeWords('name should be a string') return 'name_should_be_a_string'
+ */
+// solution
+
+function toSnakeCase(str: string): string {
+  return str.split(" ").join("_").toLowerCase();
+}
+
+// Example
+console.log(toSnakeCase("name should be a string"));
+
 // =========================================================================
 
 /**
@@ -10,7 +25,7 @@ Shunday function yozing, uni string parametri bolsin. String ichidagi har bir so
 MASALAN: capitalizeWords('name should be a string') return 'Name Should be a String'
  */
 // solution
-
+/*
 function capitalizeWords(str: string): string {
   return str
     .split(" ")
@@ -25,7 +40,7 @@ function capitalizeWords(str: string): string {
 
 // Example
 console.log(capitalizeWords("name should be a string"));
-
+*/
 // =========================================================================
 
 /**
