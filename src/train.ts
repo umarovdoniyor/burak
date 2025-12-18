@@ -1,6 +1,36 @@
 console.log("======>TRAIN MODE<======");
 // =========================================================================
 // =========================================================================
+// =========================================================================
+// =========================================================================
+
+/**
+ * TASK-ZH:
+
+Shunday function yozing, u berilgan array parametrni ichidagi eng katta raqamgacha tushib qolgan raqamlarni bir arrayda qaytarsin. 
+MASALAN: findDisappearedNumbers([1, 3, 4, 7]) return [2, 5, 6]
+ */
+// solution
+
+function findDisappearedNumbers(arr: number[]): number[] {
+  const maxNum = Math.max(...arr);
+  const result: number[] = [];
+  const numSet = new Set(arr);
+
+  for (let i = 1; i < maxNum; i++) {
+    if (!numSet.has(i)) {
+      result.push(i);
+    }
+  }
+
+  return result;
+}
+
+// Example
+const example_input = [1, 3, 4, 7];
+const result = findDisappearedNumbers(example_input);
+console.log("result: 👉 ", result);
+// =========================================================================
 /**
  * TASK-ZG:
 
@@ -8,14 +38,14 @@ Shunday function yozing, u berilgan string parametrni snake casega otkazib qayta
 MASALAN: capitalizeWords('name should be a string') return 'name_should_be_a_string'
  */
 // solution
-
+/*
 function toSnakeCase(str: string): string {
   return str.split(" ").join("_").toLowerCase();
 }
 
 // Example
 console.log(toSnakeCase("name should be a string"));
-
+*/
 // =========================================================================
 
 /**
