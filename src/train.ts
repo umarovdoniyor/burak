@@ -2,6 +2,38 @@ console.log("======>TRAIN MODE<======");
 // =========================================================================
 // =========================================================================
 // =========================================================================
+/**
+ * TASK ZJ:
+
+Shunday function yozing, u berilgan array ichidagi
+raqamlarni qiymatini hisoblab qaytarsin.
+
+MASALAN: reduceNestedArray([1, [1, 2, [4]]]); return 8;
+
+Yuqoridagi misolda, array nested bo'lgan holdatda ham,
+bizning function ularning yig'indisini hisoblab qaytarmoqda.
+ */
+// solution
+
+function reduceNestedArray(arr: any[]): number {
+  let sum = 0;
+
+  for (const item of arr) {
+    if (Array.isArray(item)) {
+      sum += reduceNestedArray(item);
+    } else if (typeof item === "number") {
+      sum += item;
+    }
+  }
+
+  return sum;
+}
+
+// Example
+const example_input = [1, [1, 2, [4]]];
+const result = reduceNestedArray(example_input);
+console.log("result: 👉 ", result);
+
 // =========================================================================
 
 /**
@@ -12,6 +44,7 @@ MASALAN: findDisappearedNumbers([1, 3, 4, 7]) return [2, 5, 6]
  */
 // solution
 
+/*
 function findDisappearedNumbers(arr: number[]): number[] {
   const maxNum = Math.max(...arr);
   const result: number[] = [];
@@ -30,6 +63,7 @@ function findDisappearedNumbers(arr: number[]): number[] {
 const example_input = [1, 3, 4, 7];
 const result = findDisappearedNumbers(example_input);
 console.log("result: 👉 ", result);
+*/
 // =========================================================================
 /**
  * TASK-ZG:
