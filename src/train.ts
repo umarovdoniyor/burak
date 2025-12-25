@@ -2,6 +2,31 @@ console.log("======>TRAIN MODE<======");
 // =========================================================================
 // =========================================================================
 // =========================================================================
+// =========================================================================
+// =========================================================================
+/**
+ * TASK-ZK:
+
+Shunday function yozing, u har soniyada bir marta consolega 1 dan 5 gacha bolgan raqamlarni chop etsin va 5 soniyadan keyin ishini toxtatsin.
+MASALAN: printNumbers()
+ */
+// solution
+
+function printNumbers(): void {
+  let count = 1;
+  const intervalId = setInterval(() => {
+    console.log(count);
+    if (count === 5) {
+      clearInterval(intervalId);
+    }
+    count++;
+  }, 1000);
+}
+
+// Example
+printNumbers();
+
+// =========================================================================
 /**
  * TASK ZJ:
 
@@ -14,7 +39,7 @@ Yuqoridagi misolda, array nested bo'lgan holdatda ham,
 bizning function ularning yig'indisini hisoblab qaytarmoqda.
  */
 // solution
-
+/*
 function reduceNestedArray(arr: any[]): number {
   let sum = 0;
 
@@ -33,7 +58,7 @@ function reduceNestedArray(arr: any[]): number {
 const example_input = [1, [1, 2, [4]]];
 const result = reduceNestedArray(example_input);
 console.log("result: 👉 ", result);
-
+*/
 // =========================================================================
 
 /**
