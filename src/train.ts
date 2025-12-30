@@ -2,6 +2,36 @@ console.log("======>TRAIN MODE<======");
 // =========================================================================
 // =========================================================================
 // =========================================================================
+/**
+ * TASK ZM:
+
+Shunday function yozing, va bu function parametr
+sifatida raqamlarni qabul qilsin. Bu function qabul qilingan
+raqamlarni orqasiga o'girib qaytarsin
+
+MASALAN: reverseInteger(123456789); return 987654321;
+
+Yuqoridagi misolda, function kiritilgan raqamlarni orqasiga
+o'girib (reverse) qilib qaytarmoqda.
+ */
+// solution
+
+function reverseInteger(input_num: number): number {
+  let reversed_num = 0;
+
+  while (input_num > 0) {
+    reversed_num = reversed_num * 10 + (input_num % 10);
+    input_num = Math.floor(input_num / 10);
+  }
+
+  return reversed_num;
+}
+
+// Example
+const example_input = 123456789;
+const result = reverseInteger(example_input);
+console.log("result: 👉 ", result);
+
 // =========================================================================
 /**
  *TASK-ZL:
@@ -10,14 +40,14 @@ Shunday function yozing, u parametrda berilgan stringni kebab casega otkazib qay
 MASALAN: stringToKebab(“I love Kebab”) return “i-love-kebab”
  */
 // solution
-
+/*
 function stringToKebab(input_str: string): string {
   return input_str.toLowerCase().trim().replace(/\s+/g, "-");
 }
 
 // Example
 console.log(stringToKebab("I love Kebab"));
-
+*/
 // =========================================================================
 /**
  * TASK-ZK:
