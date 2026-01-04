@@ -2,6 +2,38 @@ console.log("======>TRAIN MODE<======");
 // =========================================================================
 // =========================================================================
 // =========================================================================
+// =========================================================================
+// =========================================================================
+// =========================================================================
+// =========================================================================
+// =========================================================================
+
+/**
+ *TASK-ZO:
+
+Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori balansda ekanligini aniqlasin. Ya'ni ochish("(") va yopish(")") qavslar soni bir xil bolishi kerak.
+
+MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
+ */
+// solution
+
+function areParenthesesBalanced(str: string): boolean {
+  let count = 0;
+
+  for (const char of str) {
+    if (char === "(") count++;
+    if (char === ")") count--;
+
+    if (count < 0) return false;
+  }
+
+  return count === 0;
+}
+
+// Example
+console.log(areParenthesesBalanced("string()ichida(qavslar)soni()balansda"));
+
+// =========================================================================
 /**
  * TASK ZM:
 
@@ -15,7 +47,7 @@ Yuqoridagi misolda, function kiritilgan raqamlarni orqasiga
 o'girib (reverse) qilib qaytarmoqda.
  */
 // solution
-
+/*
 function reverseInteger(input_num: number): number {
   let reversed_num = 0;
 
@@ -31,7 +63,7 @@ function reverseInteger(input_num: number): number {
 const example_input = 123456789;
 const result = reverseInteger(example_input);
 console.log("result: 👉 ", result);
-
+*/
 // =========================================================================
 /**
  *TASK-ZL:
