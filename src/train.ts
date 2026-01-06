@@ -6,6 +6,35 @@ console.log("======>TRAIN MODE<======");
 // =========================================================================
 // =========================================================================
 // =========================================================================
+
+/**
+ *TASK-ZP:
+
+Shunday function yozing, u parametridagi string ichidagi raqam va sonlarni sonini sanasin.
+MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}
+ */
+// solution
+
+function countNumberAndLetters(str: string): {
+  number: number;
+  letter: number;
+} {
+  let number = 0;
+  let letter = 0;
+
+  for (const char of str) {
+    if (/[0-9]/.test(char)) {
+      number++;
+    } else if (/[a-zA-Z]/.test(char)) {
+      letter++;
+    }
+  }
+
+  return { number, letter };
+}
+
+console.log(countNumberAndLetters("string152%¥"));
+
 // =========================================================================
 
 /**
@@ -16,7 +45,7 @@ Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori balansda
 MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
  */
 // solution
-
+/*
 function areParenthesesBalanced(str: string): boolean {
   let count = 0;
 
@@ -32,7 +61,7 @@ function areParenthesesBalanced(str: string): boolean {
 
 // Example
 console.log(areParenthesesBalanced("string()ichida(qavslar)soni()balansda"));
-
+*/
 // =========================================================================
 /**
  * TASK ZM:
