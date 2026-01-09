@@ -5,6 +5,32 @@ console.log("======>TRAIN MODE<======");
 // =========================================================================
 // =========================================================================
 // =========================================================================
+/**
+ * TASK ZQ:
+
+Shunday function yozing, u parametridagi array ichida 2 marta qaytarilgan sonlarni alohida araryda qaytarsin.
+MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4]
+ */
+// solution
+function findDuplicates(nums: number[]): number[] {
+  const counts: Record<number, number> = {};
+  const result: number[] = [];
+
+  for (const num of nums) {
+    counts[num] = (counts[num] || 0) + 1;
+  }
+
+  for (const num of nums) {
+    if (counts[num] > 1 && !result.includes(num)) {
+      result.push(num);
+    }
+  }
+
+  return result;
+}
+
+// Example
+console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4]));
 // =========================================================================
 
 /**
@@ -14,7 +40,7 @@ Shunday function yozing, u parametridagi string ichidagi raqam va sonlarni sonin
 MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}
  */
 // solution
-
+/*
 function countNumberAndLetters(str: string): {
   number: number;
   letter: number;
@@ -34,7 +60,7 @@ function countNumberAndLetters(str: string): {
 }
 
 console.log(countNumberAndLetters("string152%¥"));
-
+*/
 // =========================================================================
 
 /**
