@@ -4,6 +4,34 @@ console.log("======>TRAIN MODE<======");
 // =========================================================================
 // =========================================================================
 // =========================================================================
+/**
+ * TASK-ZR:
+
+Shunday function yozing, u 2 ta array parametr qabul qilsin.
+Siz bu ikki arrayning qiymatlari o'xshash bo'lishini 
+(ya'ni, ularning barcha elementlari bir xil bo'lishini) tekshirishingiz kerak.
+
+MASALAN:
+areArraysEqual([1, 2, 3], [3, 1, 2]) // true
+areArraysEqual([1, 2, 3], [3, 1, 2, 1]) // true
+areArraysEqual([1, 2, 3], [4, 1, 2]) // false
+ */
+// solution
+
+function areArraysEqual(arr1: number[], arr2: number[]): boolean {
+  for (const num of arr1) {
+    if (!arr2.includes(num)) {
+      return false;
+    }
+  }
+  return true;
+}
+// Example
+const example_input_1 = areArraysEqual([1, 2, 3], [3, 1, 2]);
+const example_input_2 = areArraysEqual([1, 2, 3], [3, 1, 2, 1]);
+const example_input_3 = areArraysEqual([1, 2, 3], [4, 1, 2]);
+
+console.log("result: 👉 ", example_input_1, example_input_2, example_input_3);
 // =========================================================================
 /**
  * TASK ZQ:
@@ -12,6 +40,7 @@ Shunday function yozing, u parametridagi array ichida 2 marta qaytarilgan sonlar
 MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4]
  */
 // solution
+/*
 function findDuplicates(nums: number[]): number[] {
   const counts: Record<number, number> = {};
   const result: number[] = [];
@@ -31,6 +60,7 @@ function findDuplicates(nums: number[]): number[] {
 
 // Example
 console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4]));
+*/
 // =========================================================================
 
 /**
