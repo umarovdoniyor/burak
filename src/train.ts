@@ -3,6 +3,37 @@ console.log("======>TRAIN MODE<======");
 // =========================================================================
 // =========================================================================
 // =========================================================================
+/**
+ * TASK ZS:
+
+Shunday function yozing, bu function parametrdagi array ichida
+bir marotaba takrorlangan element'ni qaytarsin
+
+MASALAN: singleNumber([4, 2, 1, 2, 1]); return 4;
+ */
+// solution
+
+function singleNumber(arr: number[]): number | null {
+  const counts: Record<number, number> = {};
+
+  for (const num of arr) {
+    counts[num] = (counts[num] || 0) + 1;
+  }
+
+  for (const num in counts) {
+    if (counts[num] === 1) {
+      return Number(num);
+    }
+  }
+
+  return null; // Agar bunday element topilmasa
+}
+
+// Example
+const example_input = [4, 2, 1, 2, 1];
+const result = singleNumber(example_input);
+console.log("result: 👉 ", result);
+
 // =========================================================================
 /**
  * TASK-ZR:
@@ -17,7 +48,7 @@ areArraysEqual([1, 2, 3], [3, 1, 2, 1]) // true
 areArraysEqual([1, 2, 3], [4, 1, 2]) // false
  */
 // solution
-
+/*
 function areArraysEqual(arr1: number[], arr2: number[]): boolean {
   for (const num of arr1) {
     if (!arr2.includes(num)) {
@@ -32,6 +63,7 @@ const example_input_2 = areArraysEqual([1, 2, 3], [3, 1, 2, 1]);
 const example_input_3 = areArraysEqual([1, 2, 3], [4, 1, 2]);
 
 console.log("result: 👉 ", example_input_1, example_input_2, example_input_3);
+*/
 // =========================================================================
 /**
  * TASK ZQ:
