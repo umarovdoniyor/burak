@@ -2,6 +2,43 @@ console.log("======>TRAIN MODE<======");
 // =========================================================================
 // =========================================================================
 // =========================================================================
+// =========================================================================
+// =========================================================================
+// =========================================================================
+// =========================================================================
+// =========================================================================
+
+/**
+ *TASK-ZU:
+
+Shunday function yozing, u parametridagi array ichida takrorlanmagan raqamlar yig'indisini qaytarsin.
+MASALAN: sumOfUnique([1,2,3,2]) return 4
+ */
+// solution
+
+function sumOfUnique(nums: number[]): number {
+  const counts: Record<number, number> = {};
+  let sum = 0;
+
+  for (const num of nums) {
+    counts[num] = (counts[num] || 0) + 1;
+  }
+
+  for (const num in counts) {
+    if (counts[num] === 1) {
+      sum += Number(num);
+    }
+  }
+
+  return sum;
+}
+
+// Example
+const example_input = [1, 2, 3, 2];
+const result = sumOfUnique(example_input);
+console.log("result: 👉 ", result);
+
+// =========================================================================
 
 /**
  * TASK-ZT:
@@ -10,7 +47,7 @@ Shunday function yozing, u parametridagi string ichida 1 martadan ortiq qaytaril
 MASALAN: firstUniqueCharIndex(“stamp”) return 0
  */
 // solution
-
+/*
 function firstUniqueCharIndex(str: string): number {
   const charCount: Record<string, number> = {};
 
@@ -31,7 +68,7 @@ function firstUniqueCharIndex(str: string): number {
 const example_input = "stamp";
 const result = firstUniqueCharIndex(example_input);
 console.log("result: 👉 ", result);
-
+*/
 // =========================================================================
 /**
  * TASK ZS:
