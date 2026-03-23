@@ -27,7 +27,7 @@ class OrderService {
 
   public async createOrder(
     member: Member,
-    input: OrderItemInput[]
+    input: OrderItemInput[],
   ): Promise<Order> {
     const memberId = shapeIntoMongooseObjectId(member._id);
     const amount = input.reduce((accumulator: number, item: OrderItemInput) => {
@@ -57,7 +57,7 @@ class OrderService {
 
   private async recordOrderItem(
     orderId: ObjectId,
-    input: OrderItemInput[]
+    input: OrderItemInput[],
   ): Promise<void> {
     const promisedList = input.map(async (item: OrderItemInput) => {
       item.orderId = orderId;
@@ -73,10 +73,20 @@ class OrderService {
 
   public async getMyOrders(
     member: Member,
-    inquiry: OrderInquiry
+    inquiry: OrderInquiry,
   ): Promise<Order[]> {
     const memberId = shapeIntoMongooseObjectId(member._id);
-    const matches = { memberId: memberId, orderStatus: inquiry.orderStatus };
+
+    // Build matches dynamically
+    const matches: any = {
+      memberId: memberId,
+      orderStatus: { $ne: OrderStatus.DELETE }, // Exclude deleted orders
+    };
+
+    // Only filter by status if provided
+    if (inquiry.orderStatus) {
+      matches.orderStatus = inquiry.orderStatus;
+    }
 
     const result = await this.orderModel
       .aggregate([
@@ -110,7 +120,7 @@ class OrderService {
 
   public async updateOrder(
     member: Member,
-    input: OrderUpdateInput
+    input: OrderUpdateInput,
   ): Promise<Order> {
     const memberId = shapeIntoMongooseObjectId(member._id),
       orderId = shapeIntoMongooseObjectId(input.orderId),
@@ -125,7 +135,7 @@ class OrderService {
         {
           orderStatus: orderStatus,
         },
-        { new: true }
+        { new: true },
       )
       .exec();
 

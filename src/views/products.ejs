@@ -60,7 +60,7 @@
                   class="spec-select new-product-status"
                   id="<%= value._id%>"
                 >
-                  <option value="PAUSE" <%= value.productStatus === 'PAUSED'?'selected':''%>>PAUSE</option>
+                  <option value="PAUSE" <%= value.productStatus === 'PAUSE'?'selected':''%>>PAUSE</option>
                   <option value="PROCESS" <%= value.productStatus === 'PROCESS'?'selected':''%>>PROCESS</option>
                   <option value="DELETE"  <%= value.productStatus === 'DELETE'?'selected':''%>>DELETE</option>
                 </select>
@@ -163,6 +163,67 @@
           <div class="long-input">
             <label>Product Description</label>
             <textarea name="productDesc" class="product-desc"></textarea>
+          </div>
+
+          <!-- Sale Price Section -->
+          <div class="half-input-frame">
+            <div class="half-input">
+              <label>Original Price (Optional - for sales)</label>
+              <input
+                type="number"
+                step="0.01"
+                placeholder="Leave empty if not on sale"
+                name="productOldPrice"
+                class="product-old-price"
+              />
+              <small style="color: #666; font-size: 12px">If set, shows strikethrough "Was $X" price</small>
+            </div>
+            <div class="half-input">
+              <label>Product Rating</label>
+              <select class="product-rating" name="productRating">
+                <option value="5" selected>⭐⭐⭐⭐⭐ (5 stars)</option>
+                <option value="4">⭐⭐⭐⭐ (4 stars)</option>
+                <option value="3">⭐⭐⭐ (3 stars)</option>
+                <option value="2">⭐⭐ (2 stars)</option>
+                <option value="1">⭐ (1 star)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="half-input-frame">
+            <div class="half-input">
+              <label>Number of Reviews</label>
+              <input
+                type="number"
+                placeholder="0"
+                name="productReviews"
+                class="product-reviews"
+                min="0"
+                value="0"
+              />
+            </div>
+            <div class="half-input">
+              <label>Product Badge (Optional)</label>
+              <select class="product-badge" name="productBadge">
+                <option value="">No Badge</option>
+                <option value="New">New</option>
+                <option value="Hot">Hot</option>
+                <option value="Popular">Popular</option>
+                <option value="Sale">Sale</option>
+              </select>
+              <small style="color: #666; font-size: 12px">Shows as a colored label on product card</small>
+            </div>
+          </div>
+
+          <div class="long-input">
+            <label>Product Tags (Optional)</label>
+            <input
+              type="text"
+              placeholder="spicy, vegetarian, popular"
+              name="productTags"
+              class="product-tags"
+            />
+            <small style="color: #666; font-size: 12px">Comma-separated tags for filtering and search</small>
           </div>
 
           <div class="img-frame">

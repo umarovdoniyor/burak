@@ -19,7 +19,13 @@ app.use("/uploads", express.static("./uploads"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(cors({ credentials: true, origin: true }));
+// app.use(cors({ credentials: true, origin: true }));
+app.use(
+  cors({
+    credentials: true,
+    origin: "http://localhost:5173", // FRONTEND URL
+  }),
+);
 
 app.use(cookieParser());
 app.use(morgan(MORGAN_FORMAT));
@@ -40,7 +46,7 @@ app.use(
     store: store,
     resave: true,
     saveUninitialized: true,
-  })
+  }),
 );
 
 app.use(function (req, res, next) {

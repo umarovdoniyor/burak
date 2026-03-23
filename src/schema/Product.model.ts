@@ -1,11 +1,11 @@
-import mongoose, { Schema } from 'mongoose';
-import { MemberType, MemberStatus } from '../libs/enums/member.enum';
+import mongoose, { Schema } from "mongoose";
+import { MemberType, MemberStatus } from "../libs/enums/member.enum";
 import {
   ProductCollection,
   ProductSize,
   ProductStatus,
   ProductVolume,
-} from '../libs/enums/product.enum';
+} from "../libs/enums/product.enum";
 
 const productSchema = new Schema(
   {
@@ -52,12 +52,37 @@ const productSchema = new Schema(
       type: Number,
       default: 0,
     },
+
+    // ✨ ADD THESE 5 NEW FIELDS:
+    productOldPrice: {
+      type: Number,
+      required: false,
+    },
+    productRating: {
+      type: Number,
+      default: 5,
+      min: 1,
+      max: 5,
+    },
+    productReviews: {
+      type: Number,
+      default: 0,
+      min: 0,
+    },
+    productTags: {
+      type: [String],
+      default: [],
+    },
+    productBadge: {
+      type: String,
+      required: false,
+    },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 productSchema.index(
   { productName: 1, productSize: 1, productVolume: 1 },
-  { unique: true }
+  { unique: true },
 );
-export default mongoose.model('Product', productSchema);
+export default mongoose.model("Product", productSchema);

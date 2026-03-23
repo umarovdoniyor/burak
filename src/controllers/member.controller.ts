@@ -34,8 +34,40 @@ memberController.getRestaurant = async (req: Request, res: Response) => {
 memberController.signup = async (req: Request, res: Response) => {
   try {
     console.log("signup 🔥");
-    const input: MemberInput = req.body,
-      result: Member = await memberService.signup(input),
+    const input: MemberInput = {
+      memberNick: req.body.memberNick,
+      memberEmail: req.body.memberEmail,
+      memberPhone: req.body.memberPhone,
+      memberPassword: req.body.memberPassword,
+      memberAddress: req.body.memberAddress,
+      memberCity: req.body.memberCity,
+      memberState: req.body.memberState,
+      memberZipCode: req.body.memberZipCode,
+      memberCountry: req.body.memberCountry,
+      memberFirstName: req.body.memberFirstName,
+      memberLastName: req.body.memberLastName,
+      memberDateOfBirth: req.body.memberDateOfBirth,
+      memberGender: req.body.memberGender,
+      memberDesc: req.body.memberDesc,
+    };
+
+    // Handle preferences if provided
+    if (req.body.memberPreferences) {
+      input.memberPreferences =
+        typeof req.body.memberPreferences === "string"
+          ? JSON.parse(req.body.memberPreferences)
+          : req.body.memberPreferences;
+    }
+
+    // Handle social links if provided
+    if (req.body.memberSocialLinks) {
+      input.memberSocialLinks =
+        typeof req.body.memberSocialLinks === "string"
+          ? JSON.parse(req.body.memberSocialLinks)
+          : req.body.memberSocialLinks;
+    }
+
+    const result: Member = await memberService.signup(input),
       token = await authService.createToken(result);
     // console.log("signup token =>", token);
 
@@ -88,7 +120,7 @@ memberController.logout = async (req: ExtendedRequest, res: Response) => {
 
 memberController.getMemberDetail = async (
   req: ExtendedRequest,
-  res: Response
+  res: Response,
 ) => {
   try {
     console.log("getMemberDetail 🔥");
@@ -105,7 +137,38 @@ memberController.getMemberDetail = async (
 memberController.updateMember = async (req: ExtendedRequest, res: Response) => {
   try {
     console.log("updateMember 🔥");
-    const input: MemberUpdateInput = req.body;
+    const input: MemberUpdateInput = {
+      _id: req.member._id,
+      memberNick: req.body.memberNick,
+      memberEmail: req.body.memberEmail,
+      memberPhone: req.body.memberPhone,
+      memberAddress: req.body.memberAddress,
+      memberCity: req.body.memberCity,
+      memberState: req.body.memberState,
+      memberZipCode: req.body.memberZipCode,
+      memberCountry: req.body.memberCountry,
+      memberDesc: req.body.memberDesc,
+      memberFirstName: req.body.memberFirstName,
+      memberLastName: req.body.memberLastName,
+      memberDateOfBirth: req.body.memberDateOfBirth,
+      memberGender: req.body.memberGender,
+    };
+
+    // Handle preferences if provided
+    if (req.body.memberPreferences) {
+      input.memberPreferences =
+        typeof req.body.memberPreferences === "string"
+          ? JSON.parse(req.body.memberPreferences)
+          : req.body.memberPreferences;
+    }
+
+    // Handle social links if provided
+    if (req.body.memberSocialLinks) {
+      input.memberSocialLinks =
+        typeof req.body.memberSocialLinks === "string"
+          ? JSON.parse(req.body.memberSocialLinks)
+          : req.body.memberSocialLinks;
+    }
 
     if (req.file) input.memberImage = req.file.path.replace(/\\/g, "/");
     const result: Member = await memberService.updateMember(req.member, input);
@@ -133,7 +196,7 @@ memberController.getTopUsers = async (req: Request, res: Response) => {
 memberController.verifyAuth = async (
   req: ExtendedRequest,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) => {
   try {
     const token = req.cookies["accessToken"];
@@ -153,7 +216,7 @@ memberController.verifyAuth = async (
 memberController.retrieveAuth = async (
   req: ExtendedRequest,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) => {
   try {
     const token = req.cookies["accessToken"];

@@ -72,7 +72,7 @@ productController.getAllProducts = async (req: Request, res: Response) => {
 
 productController.createNewProduct = async (
   req: AdminRequest,
-  res: Response
+  res: Response,
 ) => {
   try {
     console.log("createNewProduct");
@@ -88,17 +88,35 @@ productController.createNewProduct = async (
       return ele.path.replace(/\\/g, "/");
     });
 
+    // Process new fields
+    data.productOldPrice = req.body.productOldPrice
+      ? Number(req.body.productOldPrice)
+      : undefined;
+    data.productRating = req.body.productRating
+      ? Number(req.body.productRating)
+      : 5;
+    data.productReviews = req.body.productReviews
+      ? Number(req.body.productReviews)
+      : 0;
+    data.productBadge = req.body.productBadge || undefined;
+    data.productTags = req.body.productTags
+      ? req.body.productTags
+          .split(",")
+          .map((tag: string) => tag.trim())
+          .filter((tag: string) => tag)
+      : [];
+
     await productService.createNewProduct(data);
 
     res.send(
-      `<script> alert("Sucessful product creation!"); window.location.replace('/admin/product/all')</script>`
+      `<script> alert("Sucessful product creation!"); window.location.replace('/admin/product/all')</script>`,
     );
   } catch (err) {
     console.log("Error, createNewProduct:", err);
     const message =
       err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
     res.send(
-      `<script> alert("${message}"); window.location.replace('/admin/product/all')</script>`
+      `<script> alert("${message}"); window.location.replace('/admin/product/all')</script>`,
     );
   }
 };

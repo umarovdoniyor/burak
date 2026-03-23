@@ -17,6 +17,11 @@ export interface Product {
   productDesc?: string;
   productImages: string[];
   productViews: number;
+  productOldPrice?: number;
+  productRating: number;
+  productReviews: number;
+  productTags: string[];
+  productBadge?: string;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -40,6 +45,11 @@ export interface ProductInput {
   productDesc?: string;
   productImages: string[];
   productViews?: number;
+  productOldPrice?: number;
+  productRating?: number;
+  productReviews?: number;
+  productTags?: string[];
+  productBadge?: string;
 }
 
 export interface ProductUpdateInput {
@@ -54,4 +64,9 @@ export interface ProductUpdateInput {
   productDesc?: string;
   productImages?: string[];
   productViews?: number;
+  productOldPrice?: number;
+  productRating?: number;
+  productReviews?: number;
+  productTags?: string[];
+  productBadge?: string;
 }

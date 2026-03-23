@@ -14,6 +14,25 @@ export interface Member {
   memberDesc?: string;
   memberImage?: string;
   memberPoints: number;
+  memberEmail: string;
+  memberCity?: string;
+  memberZipCode?: string;
+  memberCountry?: string;
+  memberState?: string;
+  memberFirstName?: string;
+  memberLastName?: string;
+  memberDateOfBirth?: Date;
+  memberGender?: "MALE" | "FEMALE" | "OTHER";
+  memberPreferences?: {
+    notifications: boolean;
+    newsletter: boolean;
+    language: string;
+  };
+  memberSocialLinks?: {
+    facebook?: string;
+    instagram?: string;
+    twitter?: string;
+  };
   createdAt: Date;
   updatedAt: Date;
 }
@@ -27,6 +46,25 @@ export interface MemberInput {
   memberDesc?: string;
   memberImage?: string;
   memberPoints?: number;
+  memberEmail: string;
+  memberCity?: string;
+  memberZipCode?: string;
+  memberCountry?: string;
+  memberState?: string;
+  memberFirstName?: string;
+  memberLastName?: string;
+  memberDateOfBirth?: Date;
+  memberGender?: "MALE" | "FEMALE" | "OTHER";
+  memberPreferences?: {
+    notifications?: boolean;
+    newsletter?: boolean;
+    language?: string;
+  };
+  memberSocialLinks?: {
+    facebook?: string;
+    instagram?: string;
+    twitter?: string;
+  };
 }
 
 export interface LoginInput {
@@ -43,6 +81,25 @@ export interface MemberUpdateInput {
   memberAddress?: string;
   memberDesc?: string;
   memberImage?: string;
+  memberEmail?: string;
+  memberCity?: string;
+  memberZipCode?: string;
+  memberCountry?: string;
+  memberState?: string;
+  memberFirstName?: string;
+  memberLastName?: string;
+  memberDateOfBirth?: Date;
+  memberGender?: "MALE" | "FEMALE" | "OTHER";
+  memberPreferences?: {
+    notifications?: boolean;
+    newsletter?: boolean;
+    language?: string;
+  };
+  memberSocialLinks?: {
+    facebook?: string;
+    instagram?: string;
+    twitter?: string;
+  };
 }
 
 export interface AdminRequest extends Request {

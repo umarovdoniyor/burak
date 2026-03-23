@@ -5,7 +5,7 @@
 <body>
   <div class="signup-container">
     <form
-      onsubmit="return validateSignupForm()"
+      onsubmit="return validateSignupForm();"
       action="/admin/signup"
       method="POST"
       enctype="multipart/form-data"
@@ -32,6 +32,18 @@
             />
           </div>
           <div class="sign-up-frame">
+            <label>Email *</label>
+            <input
+              type="email"
+              name="memberEmail"
+              class="member-email"
+              placeholder="Email"
+              value=""
+            />
+          </div>
+        </div>
+        <div class="sign-input-frame" style="justify-content: space-between">
+          <div class="sign-up-frame">
             <label>Phone *</label>
             <input
               type="text"
@@ -41,8 +53,6 @@
               value=""
             />
           </div>
-        </div>
-        <div class="sign-input-frame" style="justify-content: space-between">
           <div class="sign-up-frame">
             <label>Password *</label>
             <input
@@ -53,6 +63,8 @@
               value=""
             />
           </div>
+        </div>
+        <div class="sign-input-frame" style="justify-content: space-between">
           <div class="sign-up-frame">
             <label>Repeat password *</label>
             <input
@@ -62,6 +74,9 @@
               placeholder="Repeat password"
               value=""
             />
+          </div>
+          <div class="sign-up-frame">
+            <!-- Empty div for spacing -->
           </div>
         </div>
 
