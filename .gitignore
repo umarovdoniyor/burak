@@ -5,3 +5,8 @@ dist
 .env.production
 
 uploads
+
+# PM2 & Deployment
+process.config.js
+deploy.sh
+logs/
