@@ -27,6 +27,7 @@ app.use(
       "http://localhost:5173",
       "http://localhost:4173",
       "http://localhost:3000",
+      "http://187.127.108.53:3000",
     ], // FRONTEND URL
   }),
 );
