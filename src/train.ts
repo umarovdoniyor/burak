@@ -1,5 +1,20 @@
 console.log("======>TRAIN MODE<======");
 // =========================================================================
+/**
+ * PM2 COMMANDS:
+ * pm2 ls - PM2 da ishga tushgan barcha processlarni ko'rsatadi.
+ * pm2 start dist/server.js --name "BURAK" - PM2 da dist/server.js faylini "BURAK" nomi bilan ishga tushiradi.
+ * pm2 start "npm run start:prod" --name "BURAK" - PM2 da "npm run start:prod" buyrug'ini "BURAK" nomi bilan ishga tushiradi.
+ * pm2 stop "BURAK" or id - "BURAK" yoki id (raqam) nomli processni to'xtatadi.
+ * pm2 restart "BURAK" or id - "BURAK" yoki id (raqam) nomli processni qayta ishga tushiradi.
+ * pm2 delete "BURAK" or id - "BURAK" yoki id (raqam) nomli processni PM2 dan o'chiradi.
+ * pm2 logs "BURAK" - "BURAK" nomli processning loglarini ko'rsatadi.
+ * pm2 monit - PM2 da ishga tushgan processlarni monitoring qilish imkonini beradi. Bu buyruq orqali CPU va xotira foydalanishini ko'rish mumkin.
+ * pm2 save - Hozirgi PM2 processlarini saqlaydi, shunda server qayta ishga tushganda avtomatik ravishda bu processlar qayta ishga tushadi.
+ * pm2 kill - PM2 da ishga tushgan barcha processlarni to'xtatadi.
+ *
+ *
+ */
 // =========================================================================
 // =========================================================================
 // =========================================================================
